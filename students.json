@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Voris Akbarov",
+        "marks": 82,
+        "city": "Tashkent"
+    },
+    {
+        "name": "Shahriyor Shomonov",
+        "marks": 67,
+        "city": "Samarkand"
+    },
+    {
+        "name": "Timur Mirkomilov",
+        "marks": 45,
+        "city": "Bukhara"
+    },
+    {
+        "name": "Oybek Karimov",
+        "marks": 91,
+        "city": "Andijan"
+    },
+    {
+        "name": "Akbar Qarshiboyev",
+        "marks": 76,
+        "city": "Tashkent"
+    }
+]

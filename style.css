@@ -1,0 +1,96 @@
+/* General styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5dc;
+    color: #333;
+}
+
+header {
+    background-color: khaki;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input,
+select,
+button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    background-color: khaki;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d6c75a;
+}
+
+/* Invalid field */
+.invalid {
+    border: 2px solid red;
+}
+
+/* Errors */
+#errors {
+    color: red;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: khaki;
+}
+
+/* Mobile-friendly table */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    main {
+        padding: 10px;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 500px;
+    }
+}
