@@ -1,3 +1,4 @@
+
 // Enrolment Number: A85204925068 | Start Date: 13 November 2026
 
 "use strict";
@@ -9,10 +10,10 @@ const MY_MARKS = 76;
 const PASS_MARK = 48;
 
 const registrationForm = document.querySelector("#registrationForm");
-
 const studentTable = document.querySelector("#studentTable");
-
 const errorsList = document.querySelector("#errors");
+
+// Student Registration
 
 if (registrationForm) {
     registrationForm.addEventListener("submit", function(event) {
@@ -71,7 +72,8 @@ if (registrationForm) {
             }
         }
     });
-        const fullNameInput = document.querySelector("#fullName");
+
+    const fullNameInput = document.querySelector("#fullName");
     const emailInput = document.querySelector("#email");
     const phoneInput = document.querySelector("#phone");
     const passwordInput = document.querySelector("#password");
@@ -134,7 +136,8 @@ if (registrationForm) {
             field.classList.toggle("invalid", invalid);
         });
     });
-        const cityMessage = document.querySelector("#cityMessage");
+
+    const cityMessage = document.querySelector("#cityMessage");
 
     cityInput.addEventListener("change", function() {
         cityMessage.textContent = "You chose " + cityInput.value;
@@ -204,6 +207,29 @@ if (studentTable) {
             }
 
             students = await response.json();
+
+            if (!Array.isArray(students) ||
+                students.length !== NUMBER_OF_STUDENTS) {
+                throw new Error("The student list must contain 5 students.");
+            }
+
+            students.forEach(function(student) {
+                if (
+                    typeof student.name !== "string" ||
+                    student.name.trim() === "" ||
+                    typeof student.city !== "string" ||
+                    student.city.trim() === "" ||
+                    typeof student.marks !== "number"
+                ) {
+                    throw new Error("Invalid student information.");
+                }
+            });
+
+            const lastStudent = students[students.length - 1];
+
+            if (lastStudent.marks !== MY_MARKS) {
+                throw new Error("Your marks do not match the required value.");
+            }
 
             displayStudents(students);
 
