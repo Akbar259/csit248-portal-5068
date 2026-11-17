@@ -1,3 +1,4 @@
+
 /* General styles */
 * {
     box-sizing: border-box;
@@ -36,15 +37,25 @@ form {
 input,
 select,
 button {
+    width: 100%;
     padding: 10px;
     font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid khaki;
+    border-color: #b5a642;
 }
 
 button {
     background-color: khaki;
     border: none;
-    border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 button:hover {
@@ -77,6 +88,10 @@ td {
 
 th {
     background-color: khaki;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f5f5dc;
 }
 
 /* Mobile-friendly table */
