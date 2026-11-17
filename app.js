@@ -80,7 +80,11 @@ if (registrationForm) {
     const nameCounter = document.querySelector("#nameCounter");
 
     fullNameInput.addEventListener("keyup", function() {
-        const remaining = NAME_MAX_LENGTH - fullNameInput.value.length;
+        const remaining = Math.max(
+            0,
+            NAME_MAX_LENGTH - fullNameInput.value.length
+        );
+
         nameCounter.textContent = remaining + " characters left";
     });
 
@@ -97,7 +101,9 @@ if (registrationForm) {
         field.addEventListener("blur", function() {
             let invalid = false;
 
-            if (field === fullNameInput && fullNameInput.value.trim() === "") {
+            if (field === fullNameInput &&
+                (fullNameInput.value.trim() === "" ||
+                fullNameInput.value.trim().length > NAME_MAX_LENGTH)) {
                 invalid = true;
             }
 
@@ -106,7 +112,8 @@ if (registrationForm) {
                 invalid = true;
             }
 
-            if (field === phoneInput && !/^\d{9}$/.test(phoneInput.value)) {
+            if (field === phoneInput &&
+                !/^\d{9}$/.test(phoneInput.value.trim())) {
                 invalid = true;
             }
 
